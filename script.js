@@ -23,7 +23,7 @@ const flowerVarieties = [
 // ---------------------> Ouvir os Toques (goat dmais)
 grassContainer.addEventListener('click', (event) => {
   const spawnAnimation = document.createElement('div');
-  spawnAnimation.classList.add('idle-flower');
+  spawnAnimation.classList.add('spawn-animation'); 
 
   const rect = grassContainer.getBoundingClientRect();
   const flowerX = event.clientX - rect.left - 40;
@@ -33,9 +33,11 @@ grassContainer.addEventListener('click', (event) => {
 
   grassContainer.appendChild(spawnAnimation);
 
-  spawnAnimation.addEventListener('animationend', () => {
+  animateSprite(spawnAnimation, 16, 100, () => {
+    
     const idleFlower = document.createElement('div');
     
+    idleFlower.classList.add('idle-flower'); 
     idleFlower.classList.add('idle-rosa');
 
     idleFlower.style.left = spawnAnimation.style.left;
@@ -44,8 +46,7 @@ grassContainer.addEventListener('click', (event) => {
     grassContainer.appendChild(idleFlower);
 
     spawnAnimation.remove();
-
-  }, { once: true });
+  });
 
   touchCount++;
   if (touchCount >= touchesForSurprise) {
@@ -57,14 +58,10 @@ grassContainer.addEventListener('click', (event) => {
 /*============================================================*/
 // ---------------------Funções <-----------------------------------------------
 /*============================================================*/
-function animateSprite(element, totalFrames) {
+function animateSprite(element, totalFrames, frameDuration, onAnimationEnd) {
   let currentFrame = 0;
+  
   const animationInterval = setInterval(() => {
-    if (currentFrame >= totalFrames) {
-      clearInterval(animationInterval);
-      return;
-    }
-    
     const row = Math.floor(currentFrame / 4);
     const col = currentFrame % 4;
     
@@ -74,7 +71,14 @@ function animateSprite(element, totalFrames) {
     element.style.backgroundPosition = `${xPos}px ${yPos}px`;
     
     currentFrame++;
-  }, 100); 
+
+    if (currentFrame >= totalFrames) {
+      clearInterval(animationInterval); 
+      if (onAnimationEnd) {
+        onAnimationEnd();
+      }
+    }
+  }, frameDuration); 
 }
 
 function showPresentBox() {
