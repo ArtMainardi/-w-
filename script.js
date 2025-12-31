@@ -42,7 +42,7 @@ grassContainer.addEventListener('click', (event) => {
     const idleFlower = document.createElement('div');
     
     idleFlower.classList.add('idle-flower'); 
-    idleFlower.classList.add('idle-margarida'); 
+    idleFlower.classList.add('idle-rosa'); 
 
     idleFlower.style.left = spawnVideo.style.left;
     idleFlower.style.top = spawnVideo.style.top;
