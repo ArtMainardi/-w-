@@ -23,7 +23,7 @@ const flowerVarieties = [
 // ---------------------> Ouvir os Toques (goat dmais)
 grassContainer.addEventListener('click', (event) => {
   const spawnAnimation = document.createElement('div');
-  spawnAnimation.classList.add('spawn-animation');
+  spawnAnimation.classList.add('idle-flower');
 
   const rect = grassContainer.getBoundingClientRect();
   const flowerX = event.clientX - rect.left - 40;
@@ -36,7 +36,6 @@ grassContainer.addEventListener('click', (event) => {
   spawnAnimation.addEventListener('animationend', () => {
     const idleFlower = document.createElement('div');
     
-    idleFlower.classList.add('idle-flower'); 
     idleFlower.classList.add('idle-rosa');
 
     idleFlower.style.left = spawnAnimation.style.left;
@@ -56,8 +55,28 @@ grassContainer.addEventListener('click', (event) => {
 });
 
 /*============================================================*/
-// -------------Função Mostrar Mensagem Surpresa <-----------------------------------------------
+// ---------------------Funções <-----------------------------------------------
 /*============================================================*/
+function animateSprite(element, totalFrames) {
+  let currentFrame = 0;
+  const animationInterval = setInterval(() => {
+    if (currentFrame >= totalFrames) {
+      clearInterval(animationInterval);
+      return;
+    }
+    
+    const row = Math.floor(currentFrame / 4);
+    const col = currentFrame % 4;
+    
+    const xPos = -col * 80; 
+    const yPos = -row * 80; 
+    
+    element.style.backgroundPosition = `${xPos}px ${yPos}px`;
+    
+    currentFrame++;
+  }, 100); 
+}
+
 function showPresentBox() {
   surpriseBox.classList.add('show');
 }
