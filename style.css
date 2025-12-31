@@ -70,8 +70,14 @@ body {
 }
 
 @keyframes espera-anim {
-  to {
-    background-position: 100% 0;
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -640px 0; 
+  }
+  100% {
+    background-position: -640px 0;
   }
 }
 
