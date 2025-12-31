@@ -13,32 +13,35 @@ let touchCount = 0;
 const touchesForSurprise = 15;
 let isSurpriseActive = false;
 
-const flowerVarieties = [
-  'flor-margarida.png',
-  'flor-tulipa.png',
-  'flor-girassol.png',
-  'flor-anemona.png' 
+const flowerCatalog = [
+  {
+    name: 'rosa',
+    spawnSprite: './assets/rosa-brotando-sprite.png', // Spritesheet de 16 frames
+    idleSprite: './assets/rosa-espera-sprite.png'    // Spritesheet de 2 frames
+  }
 ];
 
 // ---------------------> Ouvir os Toques (goat dmais)
 grassContainer.addEventListener('click', (event) => {
+   const randomFlowerData = flowerCatalog[Math.floor(Math.random() * flowerCatalog.length)];
+  
   const spawnAnimation = document.createElement('div');
   spawnAnimation.classList.add('spawn-animation'); 
 
+  spawnAnimation.style.backgroundImage = `url('${randomFlowerData.spawnSprite}')`;
+  
   const rect = grassContainer.getBoundingClientRect();
   const flowerX = event.clientX - rect.left - 40;
   const flowerY = event.clientY - rect.top - 40;
   spawnAnimation.style.left = `${flowerX}px`;
   spawnAnimation.style.top = `${flowerY}px`;
-
   grassContainer.appendChild(spawnAnimation);
 
   animateSprite(spawnAnimation, 16, 100, () => {
     
     const idleFlower = document.createElement('div');
-    
     idleFlower.classList.add('idle-flower'); 
-    idleFlower.classList.add('idle-rosa');
+    idleFlower.classList.add(`idle-${randomFlowerData.name}`);
 
     idleFlower.style.left = spawnAnimation.style.left;
     idleFlower.style.top = spawnAnimation.style.top;
