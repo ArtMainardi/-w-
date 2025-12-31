@@ -29,7 +29,7 @@ grassContainer.addEventListener('click', (event) => {
   spawnVideo.muted = true;
   spawnVideo.playsInline = true;
 
-  spawnVideo.classList.add('flower-video'); 
+  spawnVideo.classList.add('idle-flower'); 
   const rect = grassContainer.getBoundingClientRect();
   const flowerX = event.clientX - rect.left - 40;
   const flowerY = event.clientY - rect.top - 40;
