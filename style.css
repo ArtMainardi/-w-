@@ -64,7 +64,7 @@ body {
   pointer-events: none;
 }
 .idle-rosa {
-  background-image: url('./assets/rosa-espera-sprite.png');
+  background-image: url('./assets/rosa-espera-sprite2.png');
   background-size: 160px 80px;
   animation: espera-anim 1s steps(2) infinite;
 }
