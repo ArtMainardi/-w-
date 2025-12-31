@@ -65,19 +65,13 @@ body {
 }
 .idle-rosa {
   background-image: url('./assets/rosa-espera-sprite.png');
-  background-size: 200% 100%;
+  background-size: 160px 80px;
   animation: espera-anim 1s steps(2) infinite;
 }
 
 @keyframes espera-anim {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: -640px 0; 
-  }
-  100% {
-    background-position: -640px 0;
+  to {
+    background-position: -160px 0; 
   }
 }
 
