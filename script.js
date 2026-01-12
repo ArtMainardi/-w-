@@ -18,7 +18,7 @@ const flowerCatalog = [
     name: 'rosa',
     spawnSprite: './assets/rosa-brotando-sprite.png', // Spritesheet de 16 frames
     idleSprite: './assets/rosa-espera-sprite.png'    // Spritesheet de 2 frames
-  }
+  },
   {
     name: 'gira-sol',
     spawnSprite: './assets/gira-sol-brotando-sprite.png', // Spritesheet de 16 frames
