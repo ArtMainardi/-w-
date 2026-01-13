@@ -92,6 +92,26 @@ body {
   }
 }
 
+#touch-counter {
+  position: absolute;
+  bottom: 20%; 
+  
+  left: 50%;
+  transform: translateX(-50%);
+  
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  user-select: none;
+  
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+#touch-counter.visible {
+  opacity: 1;
+}
+
 .grass-container {
   width: 700px;
   height: 65vh;
