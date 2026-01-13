@@ -54,7 +54,7 @@ grassContainer.addEventListener('click', (event) => {
   spawnAnimation.style.top = `${flowerY}px`;
   grassContainer.appendChild(spawnAnimation);
 
-  animateSprite(spawnAnimation, 16, 100, () => {
+  animateSprite(spawnAnimation, 16, 160, () => {
     
     const idleFlower = document.createElement('div');
     idleFlower.classList.add('idle-flower'); 
