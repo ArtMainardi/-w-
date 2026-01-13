@@ -2,6 +2,8 @@ const grassContainer = document.querySelector('.grass-container');
 const surpriseBox = document.querySelector('.surprise-box');
 const letterContainer = document.querySelector('.letter-container');
 const closeLetterButton = document.querySelector('.close-letter-button');
+const touchCounterElement = document.querySelector('#touch-counter'); 
+const currentTouchesSpan = document.querySelector('#current-touches');
 
 
 /*============================================================*/
@@ -28,7 +30,7 @@ const flowerCatalog = [
 
 // ---------------------> Ouvir os Toques (goat dmais)
 grassContainer.addEventListener('click', (event) => {
-   const randomFlowerData = flowerCatalog[Math.floor(Math.random() * flowerCatalog.length)];
+  const randomFlowerData = flowerCatalog[Math.floor(Math.random() * flowerCatalog.length)];
   
   const spawnAnimation = document.createElement('div');
   spawnAnimation.classList.add('spawn-animation'); 
@@ -57,9 +59,17 @@ grassContainer.addEventListener('click', (event) => {
   });
 
   touchCount++;
+
+  if (touchCount === 1) {
+    touchCounterElement.classList.add('visible');
+  }
+  currentTouchesSpan.textContent = touchCount;
+
   if (touchCount >= touchesForSurprise) {
     isSurpriseActive = true;
     showPresentBox();
+
+    touchCounterElement.style.opacity = '0';
   }
 });
 
