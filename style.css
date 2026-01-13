@@ -119,6 +119,55 @@ body {
 }
 
 
+
+/* ================================================ */
+/* ------------- Nuvens no Céu (Pulsantes) <--------*/
+/* ================================================ */
+.cloud {
+  position: absolute;
+  background-image: url('./assets/nuvem-sprite.png');
+  
+  animation: pulsar-nuvem 3s steps(2) infinite;
+}
+
+/* Keyframes para a animação da nuvem */
+@keyframes pulsar-nuvem {
+  to {
+    background-position: -200% 0; 
+  }
+}
+
+/*
+ * Estilos individuais para cada nuvem.
+ * Aqui definimos o tamanho, a posição e o tamanho do background-size.
+ * O background-size deve ser o DOBRO da largura do container.
+*/
+
+.cloud-1 {
+  width: 150px;
+  height: 150px;
+  background-size: 300px 150px; /* 150px * 2 frames = 300px */
+  
+  top: 5%;
+  left: 5%;
+  
+  /* Adicionando um pouco de variação na animação */
+  animation-duration: 2s; /* Esta nuvem pulsa um pouco mais devagar */
+}
+
+.cloud-2 {
+  width: 200px;
+  height: 200px;
+  background-size: 400px 200px; /* 150px * 2 frames = 300px */
+  
+  top: 15%;
+  left: 30%;
+  
+  /* Adicionando um pouco de variação na animação */
+  animation-duration: 2s; /* Esta nuvem pulsa um pouco mais devagar */
+}
+
+
 /* ================================================ */
 /* ------------------ Flores <--------------------------------------------------------*/
 /* ================================================ */
